@@ -33,9 +33,11 @@ const Main = (props) => {
             task={item.task}
             index={index}
             ok={item.ok}
+            prior={item.prior}
             delete={deleteTask}
             checkTask={checkTask}
             changeEdit={changeEdit}
+            changePrior={changePrior}
             key={index}
           />
         ));
@@ -63,6 +65,12 @@ const Main = (props) => {
     const checkTask = [...tasks];
     checkTask[i].ok = !checkTask[i].ok;
     setTasks(checkTask);
+  };
+
+  const changePrior = (i, prior) => {
+    const priorTask = [...tasks];
+    priorTask[i].prior = prior
+    setTasks(priorTask);
   };
 
   const searchTask = (text) => setFilterText(text);

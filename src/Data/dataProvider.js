@@ -1,11 +1,13 @@
 function getTasks() {
     return [{
         task: "Aprender react",
-        ok: false
+        ok: false,
+        prior: "Baja"
     },
     {
         task: "Mochila",
-        ok: false
+        ok: false,
+        prior: "Baja"
     }]
   }
   

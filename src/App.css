@@ -102,6 +102,10 @@ article #check {
   width: 5%;
   box-shadow: none;
 }
+
+.alta {
+  background-color: rgb(233, 131, 131);
+}
 article .botones {
   margin: none;
   width: 40%;
