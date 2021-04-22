@@ -81,26 +81,19 @@ article button {
 
 article {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
   background-color: rgb(235, 225, 225);
   margin: 10px auto;
+  padding: 10px 0px;
   max-width: 650px;
 }
 article > h3 {
-  width: 30%;
+  width: 45%;
   text-align: start;
   margin-left: 10px;
 }
-article > input {
-  width: 25%;
-  margin: none;
-  text-align: center;
-  border-radius: 10px;
-  border: none;
-  height: 15px;
-  box-shadow: 2px 2px 15px -4px black;
-}
+
 article > select {
   height: 25px;
   margin-right: 10px;

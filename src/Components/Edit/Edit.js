@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 const Edit = (props) => {
-  const [task, setTask] = useState("");
+  const [task, setTask] = useState(props.task.text);
 
   const edit = (event) => setTask(event.target.value);
 
@@ -10,6 +10,7 @@ const Edit = (props) => {
   return (
     <form className="input">
       <input
+        value={task}
         type="text"
         name="task"
         placeholder="Edita aqui tu nueva tarea"

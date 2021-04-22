@@ -1,12 +1,8 @@
 import { useEffect, useState } from "react";
 
 const Search = (props) => {
-  const [state, setState] = useState({ task: "" })
-
-  const handleTask = async (event) => {
-    await setState({ task: event.target.value });
-    props.searchTask(state.task);
-  };
+  console.log(props);
+  const handleTask = (event) => props.searchTask(event.target.value);
 
   return (
     <form className="input">
