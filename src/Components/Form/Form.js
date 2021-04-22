@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Form = (props) => {
-  const [state, setstate] = useState({
+  const [state, setState] = useState({
     task: {
       task: props.task,
       ok: props.ok,
@@ -9,7 +9,7 @@ const Form = (props) => {
   });
 
   const handleTask = (event) => {
-    setstate({ task: event.target.value });
+    setState({ task: event.target.value });
   };
 
   const handleNewTask = (event) => {

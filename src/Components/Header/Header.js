@@ -1,9 +1,9 @@
-import { useState } from 'react';
+import { useEffect, useState } from "react";
 import logo from '../../logo.svg';
 
 const Header = props => {
 
-    const [state, setstate] = useState({
+    const [state, setState] = useState({
         user: props.user
     })
 

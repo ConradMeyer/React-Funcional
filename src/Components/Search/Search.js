@@ -1,15 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Search = (props) => {
-  const [state, setstate] = useState({
-    task: {
-      task: props.task,
-      ok: props.ok,
-    },
-  });
+  const [state, setState] = useState({ task: "" })
 
   const handleTask = async (event) => {
-    await setstate({ task: event.target.value });
+    await setState({ task: event.target.value });
     props.searchTask(state.task);
   };
 

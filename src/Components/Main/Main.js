@@ -1,30 +1,32 @@
 import { useEffect, useState } from "react";
+
 import Form from "../Form/Form";
 import Task from "../Task/Task";
+import Edit from "../Edit/Edit";
 import getTasks from "../../Data/dataProvider";
 import Search from "../Search/Search";
 
 const Main = (props) => {
-  const [state, setstate] = useState({
-    tasks: [],
-    filterText: "",
-    newTask: false,
-  });
+  const [tasks, setTasks] = useState([]);
+  const [filterText, setFilterText] = useState("");
+  const [newTask, setNewTask] = useState(true);
+  const [editTask, setEditTask] = useState(false);
+  const [toEdit, setToEdit] = useState({});
 
   useEffect(() => {
     async function loadTasks() {
-      const tasks = await getTasks();
-      setstate({ tasks: [...state.tasks, ...tasks] });
+      const newTasks = await getTasks();
+      setTasks([...tasks, ...newTasks]);
     }
 
     loadTasks();
   }, []);
 
   const drawTasks = () => {
-    if (state.tasks.length > 0) {
-      return state.tasks
+    if (tasks.length > 0) {
+      return tasks
         .filter((item) =>
-          item.task.toLowerCase().includes(state.filterText.toLowerCase())
+          item.task.toLowerCase().includes(filterText.toLowerCase())
         )
         .map((item, index) => (
           <Task
@@ -32,8 +34,8 @@ const Main = (props) => {
             index={index}
             ok={item.ok}
             delete={deleteTask}
-            editTask={editTask}
             checkTask={checkTask}
+            changeEdit={changeEdit}
             key={index}
           />
         ));
@@ -42,53 +44,63 @@ const Main = (props) => {
   };
 
   const addTask = (task) => {
-    setstate({
-      tasks: [...state.tasks, { task }],
-    });
+    setTasks([...tasks, { task }]);
   };
 
-  const editTask = (i, input) => {
-    const editTask = [...state.tasks];
-    editTask[i].task = input;
-    setstate({ tasks: editTask });
+  const editedTask = (i, input) => {
+    const editedTask = [...tasks];
+    editedTask[i].task = input;
+    setTasks(editedTask);
+    setEditTask(!editTask);
   };
 
   const deleteTask = (i) => {
-    let tasks = state.tasks.filter((el, index) => index !== i);
-    setstate({
-      tasks: tasks,
-    });
+    let newTasks = tasks.filter((el, index) => index !== i);
+    setTasks(newTasks);
   };
 
   const checkTask = (i) => {
-    const checkTask = [...state.tasks];
+    const checkTask = [...tasks];
     checkTask[i].ok = !checkTask[i].ok;
-    this.setstate({ tasks: checkTask });
+    setTasks(checkTask);
   };
 
-  const searchTask = (text) => {
-    setstate({ filterText: text });
+  const searchTask = (text) => setFilterText(text);
+
+  const change = () => setNewTask(!newTask);
+
+  const changeEdit = (i, text) => {
+    setEditTask(!editTask);
+    setToEdit({ i, text });
   };
 
-  const change = () => {
-    const newTask = !state.newTask;
-    setstate({ newTask: newTask });
-  };
-
-  return (
-    <main className="main">
-      {state.newTask ? (
-        <Form addTask={addTask} searchTask={searchTask} />
-      ) : (
-        <Search addTask={addTask} searchTask={searchTask} />
-      )}
-      <button className="newTask" onClick={change}>
-        Search/Create
-      </button>
-      <h2 className="tareas">TAREAS:</h2>
-      {drawTasks()}
-    </main>
-  );
+  if (!editTask) {
+    return (
+      <main className="main">
+        {newTask ? (
+          <Form addTask={addTask} />
+        ) : (
+          <Search searchTask={searchTask} />
+        )}
+        <button className="newTask" onClick={change}>
+          Search/Create
+        </button>
+        <h2 className="tareas">TAREAS:</h2>
+        {drawTasks()}
+      </main>
+    );
+  } else {
+    return (
+        <main className="main">
+          <Edit task={toEdit} editedTask={editedTask} />
+          <button className="newTask" onClick={change}>
+            Search/Create
+          </button>
+          <h2 className="tareas">TAREAS:</h2>
+          {drawTasks()}
+        </main>
+      );
+  }
 };
 
 export default Main;
