@@ -1,31 +1,150 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+/* TOTAL */
 .App {
   text-align: center;
+  font-family: "Courier New", Courier, monospace;
 }
 
+/* HEADER */
+.bienvenida {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  background-color: aliceblue;
+  font-family: "Courier New", Courier, monospace;
+}
 .App-logo {
-  height: 40vmin;
+  height: 40px;
   pointer-events: none;
 }
+.personal {
+  margin: 10px;
+}
 
+/* MAIN */
+form.input {
+  margin: 10px auto;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(245, 245, 245);
+  box-shadow: 2px 2px 20px -1px black;
+}
+input {
+  margin: 15px;
+  width: 60%;
+  text-align: center;
+  border-radius: 10px;
+  border: none;
+  padding: 10px;
+  box-shadow: 2px 2px 20px -4px black;
+}
+.input button {
+  width: 80px;
+  margin: 15px;
+  padding: 10px 15px;
+  text-decoration: none;
+  border-radius: 10px;
+  border: none;
+  background-color: black;
+  color: white;
+  font-weight: bold;
+  box-shadow: 2px 2px 20px -4px black;
+}
+button:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+article button {
+  width: 80px;
+  margin: 15px;
+  padding: 7px 15px;
+  text-decoration: none;
+  border-radius: 10px;
+  border: none;
+  background-color: black;
+  color: white;
+  font-weight: bold;
+  box-shadow: 2px 2px 20px -4px black;
+}
+
+article {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: whitesmoke;
+  margin: 10px auto;
+  max-width: 650px;
+}
+article > h3 {
+  width: 30%;
+  text-align: start;
+  margin-left: 10px;
+}
+article > input {
+  width: 25%;
+  margin: none;
+  text-align: center;
+  border-radius: 10px;
+  border: none;
+  height: 12px;
+  box-shadow: 2px 2px 20px -4px black;
+}
+article > select {
+  height: 25px;
+  margin-right: 10px;
+}
+article #check {
+  width: 5%;
+  box-shadow: none;
+}
+article .botones {
+  margin: none;
+  width: 40%;
+}
+article button {
+  margin: 5px;
+}
+article.true {
+  background-color: green;
+}
+
+h2.tareas {
+  text-decoration: underline;
+}
+
+h3:hover {
+  cursor: pointer;
+}
+
+button {
+  margin: 15px;
+  padding: 7px 15px;
+  text-decoration: none;
+  border-radius: 10px;
+  border: none;
+  background-color: black;
+  color: white;
+  font-weight: bold;
+  box-shadow: 2px 2px 20px -4px black;
+}
+
+/* ANIMACION DEL LOGO */
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
 }
 
 @keyframes App-logo-spin {
