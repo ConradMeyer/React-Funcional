@@ -13,14 +13,14 @@ const Main = (props) => {
   const [editTask, setEditTask] = useState(false);
   const [toEdit, setToEdit] = useState({});
 
-  useEffect(() => {
-    async function loadTasks() {
-      const newTasks = await getTasks();
-      setTasks([...tasks, ...newTasks]);
-    }
+  // useEffect(() => {
+  //   async function loadTasks() {
+  //     const newTasks = await getTasks();
+  //     setTasks([...tasks, ...newTasks]);
+  //   }
 
-    loadTasks();
-  }, []);
+  //   loadTasks();
+  // }, []);
 
   const drawTasks = () => {
     if (tasks.length > 0) {

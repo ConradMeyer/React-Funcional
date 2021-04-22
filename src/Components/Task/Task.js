@@ -8,10 +8,7 @@ const Task = (props) => {
 
   const change = () => props.changeEdit(props.index, props.task)
 
-  const priority = (event) => {
-    props.changePrior(props.index, event.target.value)
-    console.log(event.target.value);
-  }
+  const priority = (event) => props.changePrior(props.index, event.target.value)
 
   return (
     <article className={`${props.ok} ${props.prior}`}>
