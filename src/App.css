@@ -9,6 +9,11 @@
   font-family: "Courier New", Courier, monospace;
 }
 
+/* body {
+  background-color: black;
+  color: white;
+} */
+
 /* HEADER */
 .bienvenida {
   display: flex;

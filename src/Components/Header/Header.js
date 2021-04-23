@@ -3,9 +3,7 @@ import logo from '../../logo.svg';
 
 const Header = props => {
 
-    const [state, setState] = useState({
-        user: props.user
-    })
+    const [state, setState] = useState({ user: props.user })
 
     return (
         <div className="header">

@@ -1,16 +1,9 @@
 import { useEffect, useState } from "react";
 
 const Form = (props) => {
-  const [state, setState] = useState({
-    task: {
-      task: props.task,
-      ok: props.ok,
-    },
-  });
+  const [state, setState] = useState({ task: props.task});
 
-  const handleTask = (event) => {
-    setState({ task: event.target.value });
-  };
+  const handleTask = (event) => setState({ task: event.target.value })
 
   const handleNewTask = (event) => {
     event.preventDefault();

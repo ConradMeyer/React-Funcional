@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 const Search = (props) => {
-  console.log(props);
+
   const handleTask = (event) => props.searchTask(event.target.value);
 
   return (

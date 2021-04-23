@@ -69,7 +69,7 @@ const Main = (props) => {
 
   const changePrior = (i, prior) => {
     const priorTask = [...tasks];
-    priorTask[i].prior = prior
+    priorTask[i].prior = prior;
     setTasks(priorTask);
   };
 
@@ -99,15 +99,15 @@ const Main = (props) => {
     );
   } else {
     return (
-        <main className="main">
-          <Edit task={toEdit} editedTask={editedTask} />
-          <button className="newTask" onClick={change}>
-            Search/Create
-          </button>
-          <h2 className="tareas">TAREAS:</h2>
-          {drawTasks()}
-        </main>
-      );
+      <main className="main">
+        <Edit task={toEdit} editedTask={editedTask} />
+        <button className="newTask" onClick={change}>
+          Search/Create
+        </button>
+        <h2 className="tareas">TAREAS:</h2>
+        {drawTasks()}
+      </main>
+    );
   }
 };
 
