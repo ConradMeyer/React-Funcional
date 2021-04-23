@@ -13,14 +13,19 @@ const Main = (props) => {
   const [editTask, setEditTask] = useState(false);
   const [toEdit, setToEdit] = useState({});
 
+  // Primera renderización (Poner la mesa)
   // useEffect(() => {
   //   async function loadTasks() {
   //     const newTasks = await getTasks();
   //     setTasks([...tasks, ...newTasks]);
   //   }
-
   //   loadTasks();
   // }, []);
+
+  // Cambios en una constante en particular
+  // useEffect(() => {
+  // console.log("Ha cambios en las tasks")
+  // }, [tasks]);
 
   const drawTasks = () => {
     if (tasks.length > 0) {
