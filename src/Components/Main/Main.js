@@ -14,13 +14,13 @@ const Main = (props) => {
   const [toEdit, setToEdit] = useState({});
 
   // Primera renderización (Poner la mesa)
-  // useEffect(() => {
-  //   async function loadTasks() {
-  //     const newTasks = await getTasks();
-  //     setTasks([...tasks, ...newTasks]);
-  //   }
-  //   loadTasks();
-  // }, []);
+  useEffect(() => {
+    async function loadTasks() {
+      const newTasks = await getTasks();
+      setTasks([...tasks, ...newTasks]);
+    }
+    loadTasks();
+  }, []);
 
   // Cambios en una constante en particular
   // useEffect(() => {

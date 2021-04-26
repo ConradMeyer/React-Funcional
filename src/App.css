@@ -9,27 +9,26 @@
   font-family: "Courier New", Courier, monospace;
 }
 
-/* body {
-  background-color: black;
-  color: white;
-} */
-
 /* HEADER */
+.header {
+  background-color: rgb(218, 237, 253);
+  font-family: "Courier New", Courier, monospace;
+}
 .bienvenida {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: 30px;
-  background-color: rgb(218, 237, 253);
-  font-family: "Courier New", Courier, monospace;
+  padding: 10px;
 }
 .App-logo {
   height: 40px;
   pointer-events: none;
 }
 .personal {
-  margin: 10px;
+  padding: 10px;
+  width: 100%;
+  background-color: white;
 }
 
 /* MAIN */
