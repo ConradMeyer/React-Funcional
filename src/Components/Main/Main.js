@@ -3,11 +3,12 @@ import { useEffect, useState } from "react";
 import Form from "../Form/Form";
 import Task from "../Task/Task";
 import Edit from "../Edit/Edit";
-import getTasks from "../../Data/dataProvider";
+// import getTasks from "../../Data/dataProvider";
 import Search from "../Search/Search";
 
 const Main = (props) => {
   const [tasks, setTasks] = useState([]);
+  const [data, setData] = useState([{}]);
   const [filterText, setFilterText] = useState("");
   const [newTask, setNewTask] = useState(true);
   const [editTask, setEditTask] = useState(false);
@@ -25,9 +26,10 @@ const Main = (props) => {
   useEffect(() => {
     async function loadTasks() {
       const res = await fetch('http://localhost:8080/data')
-      const data = await res.json()
+      const result = await res.json()
 
-      setTasks([...tasks, ...data]);
+      setData([...data, ...result]);
+      setTasks([...tasks, ...result]);
     }
     loadTasks();
   }, []);
@@ -56,11 +58,11 @@ const Main = (props) => {
             key={index}
           />
         ));
+    }  
+    else if (data.length === 1){
+      return <h3>Cargando...</h3>;
     }
-    else if(tasks == []) {
-      return <h3>No hay tareas</h3>;
-    }
-    return <h3>Cargando...</h3>;
+    return <h3>No hay tareas</h3>;
   };
 
   const addTask = (task) => {
