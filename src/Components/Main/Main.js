@@ -14,10 +14,20 @@ const Main = (props) => {
   const [toEdit, setToEdit] = useState({});
 
   // Primera renderización (Poner la mesa)
+  // useEffect(() => {
+  //   async function loadTasks() {
+  //     const newTasks = await getTasks();
+  //     setTasks([...tasks, ...newTasks]);
+  //   }
+  //   loadTasks();
+  // }, []);
+
   useEffect(() => {
     async function loadTasks() {
-      const newTasks = await getTasks();
-      setTasks([...tasks, ...newTasks]);
+      const res = await fetch('http://localhost:8080/data')
+      const data = await res.json()
+
+      setTasks([...tasks, ...data]);
     }
     loadTasks();
   }, []);
@@ -47,7 +57,10 @@ const Main = (props) => {
           />
         ));
     }
-    return <h3>No hay tareas pendientes</h3>;
+    else if(tasks == []) {
+      return <h3>No hay tareas</h3>;
+    }
+    return <h3>Cargando...</h3>;
   };
 
   const addTask = (task) => {

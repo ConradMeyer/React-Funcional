@@ -14,7 +14,7 @@
   background-color: rgb(218, 237, 253);
   font-family: "Courier New", Courier, monospace;
 }
-.header button {
+.header a {
   color: white;
   text-decoration: none;
 }
@@ -46,6 +46,10 @@ div.login {
   align-items: center;
   box-shadow: 2px 2px 15px -3px black;
   border-radius: 15px;
+}
+.login a {
+  color: white;
+  text-decoration: none;
 }
 
 /* MAIN */
