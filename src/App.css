@@ -14,6 +14,10 @@
   background-color: rgb(218, 237, 253);
   font-family: "Courier New", Courier, monospace;
 }
+.header button {
+  color: white;
+  text-decoration: none;
+}
 .bienvenida {
   display: flex;
   flex-direction: row;
@@ -29,6 +33,19 @@
   padding: 10px;
   width: 100%;
   background-color: white;
+}
+
+/* LOGIN */
+div.login {
+  margin: 10px auto;
+  padding: 10px;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 2px 2px 15px -3px black;
+  border-radius: 15px;
 }
 
 /* MAIN */
