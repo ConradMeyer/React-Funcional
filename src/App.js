@@ -23,9 +23,7 @@ function App() {
         <AuthContext.Provider value={dataContext}>
           <Header user={state.user} />
           <Switch>
-            <Route path="/login">
-              <Login />
-            </Route>
+            <Route path="/login" component={Login}/>
             <Route exact path="/">
               <Main />
             </Route>

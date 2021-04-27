@@ -10,30 +10,37 @@
 }
 
 /* HEADER */
+.nav {
+  background-color: rgb(218, 237, 253);
+  display: flex;
+}
+.nav button {
+  width: 100px;
+}
+.nav a {
+  color: white;
+  text-decoration: none;
+}
 .header {
   background-color: rgb(218, 237, 253);
   font-family: "Courier New", Courier, monospace;
-}
-.header a {
-  color: white;
-  text-decoration: none;
 }
 .bienvenida {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: 10px;
+  padding-bottom: 20px;
 }
 .App-logo {
   height: 40px;
   pointer-events: none;
 }
-.personal {
+/* .personal {
   padding: 10px;
   width: 100%;
   background-color: white;
-}
+} */
 
 /* LOGIN */
 div.login {
@@ -50,6 +57,19 @@ div.login {
 .login a {
   color: white;
   text-decoration: none;
+}
+.login button {
+  width: 100px;
+}
+.login .checkbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 250px;
+}
+.login .checkbox #checkbox {
+  width: 10%;
+  box-shadow: none;
 }
 
 /* MAIN */
@@ -149,7 +169,7 @@ article.true {
 
 h2.tareas {
   text-decoration: underline;
-  margin-bottom: 15px;
+  margin: 20px;
 }
 
 button {

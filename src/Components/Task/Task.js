@@ -10,7 +10,8 @@ const Task = (props) => {
 
   const change = () => props.changeEdit(props.index, props.task);
 
-  const priority = (event) => props.changePrior(props.index, event.target.value);
+  const priority = (event) =>
+    props.changePrior(props.index, event.target.value);
 
   if (dataContext.auth) {
     return (
@@ -27,13 +28,12 @@ const Task = (props) => {
         </select>
       </article>
     );
-  }
-  else {
+  } else {
     return (
       <article className={`${props.ok} ${props.prior}`}>
         <h3 className="lectura">{props.task}</h3>
       </article>
-    )
+    );
   }
 };
 

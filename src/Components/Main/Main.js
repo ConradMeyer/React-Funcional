@@ -1,5 +1,4 @@
 import { useEffect, useState, useContext } from "react";
-
 import Form from "../Form/Form";
 import Task from "../Task/Task";
 import Edit from "../Edit/Edit";
@@ -17,24 +16,29 @@ const Main = (props) => {
   const dataContext = useContext(AuthContext);
 
   // Primera renderización (Poner la mesa)
-  useEffect(() => {
-    async function loadTasks() {
-      const newTasks = await getTasks();
-      setTasks([...tasks, ...newTasks]);
-    }
-    loadTasks();
-  }, []);
-
-  // CON FETCH Y BACK (peticion de datos a backend)
   // useEffect(() => {
   //   async function loadTasks() {
-  //     const res = await fetch("http://localhost:8080/data");
-  //     const result = await res.json();
-  //     setData([...data, ...result]);
-  //     setTasks([...tasks, ...result]);
+  //     const newTasks = await getTasks();
+  //     setTasks([...tasks, ...newTasks]);
   //   }
   //   loadTasks();
   // }, []);
+
+  // CON FETCH Y BACK (peticion de datos a backend)
+  useEffect(() => {
+    async function loadTasks() {
+      try {
+        const res = await fetch("http://localhost:8080/data");
+        const result = await res.json();
+        setData([...data, ...result]);
+        setTasks([...tasks, ...result]);
+      } catch (e) {
+        const newTasks = await getTasks();
+        setTasks([...tasks, ...newTasks]);
+      }
+    }
+    loadTasks();
+  }, []);
 
   // Cambios en una constante en particular
   // useEffect(() => {
@@ -131,8 +135,7 @@ const Main = (props) => {
         </main>
       );
     }
-  }
-  else {
+  } else {
     return (
       <main className="main">
         <h2 className="tareas">TAREAS:</h2>
