@@ -119,6 +119,11 @@ article > h3 {
   margin-left: 10px;
 }
 
+h3.lectura {
+  text-align: center;
+  width: 100%;
+}
+
 article > select {
   height: 25px;
   margin-right: 10px;

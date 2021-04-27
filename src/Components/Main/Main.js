@@ -1,10 +1,11 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 
 import Form from "../Form/Form";
 import Task from "../Task/Task";
 import Edit from "../Edit/Edit";
-// import getTasks from "../../Data/dataProvider";
+import getTasks from "../../Data/dataProvider";
 import Search from "../Search/Search";
+import AuthContext from "../../contexts/AuthContext";
 
 const Main = (props) => {
   const [tasks, setTasks] = useState([]);
@@ -13,26 +14,27 @@ const Main = (props) => {
   const [newTask, setNewTask] = useState(true);
   const [editTask, setEditTask] = useState(false);
   const [toEdit, setToEdit] = useState({});
+  const dataContext = useContext(AuthContext);
 
   // Primera renderización (Poner la mesa)
-  // useEffect(() => {
-  //   async function loadTasks() {
-  //     const newTasks = await getTasks();
-  //     setTasks([...tasks, ...newTasks]);
-  //   }
-  //   loadTasks();
-  // }, []);
-
   useEffect(() => {
     async function loadTasks() {
-      const res = await fetch('http://localhost:8080/data')
-      const result = await res.json()
-
-      setData([...data, ...result]);
-      setTasks([...tasks, ...result]);
+      const newTasks = await getTasks();
+      setTasks([...tasks, ...newTasks]);
     }
     loadTasks();
   }, []);
+
+  // CON FETCH Y BACK (peticion de datos a backend)
+  // useEffect(() => {
+  //   async function loadTasks() {
+  //     const res = await fetch("http://localhost:8080/data");
+  //     const result = await res.json();
+  //     setData([...data, ...result]);
+  //     setTasks([...tasks, ...result]);
+  //   }
+  //   loadTasks();
+  // }, []);
 
   // Cambios en una constante en particular
   // useEffect(() => {
@@ -58,8 +60,7 @@ const Main = (props) => {
             key={index}
           />
         ));
-    }  
-    else if (data.length === 1){
+    } else if (data.length === 1) {
       return <h3>Cargando...</h3>;
     }
     return <h3>No hay tareas</h3>;
@@ -102,28 +103,38 @@ const Main = (props) => {
     setToEdit({ i, text });
   };
 
-  if (!editTask) {
+  if (dataContext.auth) {
+    if (!editTask) {
+      return (
+        <main className="main">
+          {newTask ? (
+            <Form addTask={addTask} />
+          ) : (
+            <Search searchTask={searchTask} />
+          )}
+          <button className="newTask" onClick={change}>
+            Search/Create
+          </button>
+          <h2 className="tareas">TAREAS:</h2>
+          {drawTasks()}
+        </main>
+      );
+    } else {
+      return (
+        <main className="main">
+          <Edit task={toEdit} editedTask={editedTask} />
+          <button className="newTask" onClick={change}>
+            Search/Create
+          </button>
+          <h2 className="tareas">TAREAS:</h2>
+          {drawTasks()}
+        </main>
+      );
+    }
+  }
+  else {
     return (
       <main className="main">
-        {newTask ? (
-          <Form addTask={addTask} />
-        ) : (
-          <Search searchTask={searchTask} />
-        )}
-        <button className="newTask" onClick={change}>
-          Search/Create
-        </button>
-        <h2 className="tareas">TAREAS:</h2>
-        {drawTasks()}
-      </main>
-    );
-  } else {
-    return (
-      <main className="main">
-        <Edit task={toEdit} editedTask={editedTask} />
-        <button className="newTask" onClick={change}>
-          Search/Create
-        </button>
         <h2 className="tareas">TAREAS:</h2>
         {drawTasks()}
       </main>
