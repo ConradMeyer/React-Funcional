@@ -17,7 +17,7 @@ function Menu() {
             HOME
           </Link>
         </li>
-        <li>TASKS</li>
+        <li onClick={dataContext.handleMenu}>TASKS</li>
         {dataContext.auth ? (
           <li onClick={(dataContext.handleLogged, dataContext.handleMenu)}>
             LOGOUT

@@ -1,4 +1,6 @@
 import React, { useContext } from "react";
+import borrar from "../../borrar.svg";
+import edit from "../../edit.svg";
 import AuthContext from "../../contexts/AuthContext";
 
 const Task = (props) => {
@@ -19,8 +21,8 @@ const Task = (props) => {
         <input type="checkbox" name="check" id="check" onClick={check} />
         <h3>{props.task}</h3>
         <div className="botones">
-          <button onClick={change}>Edit</button>
-          <button onClick={delet}>Delete</button>
+          <img src={borrar} alt="menu" onClick={dataContext.handleMenu, delet} id="delete"/>
+          <img src={edit} alt="menu" onClick={dataContext.handleMenu, change} id="edit"/>
         </div>
         <select name="prioridad" id="prioridad" onChange={priority}>
           <option value="baja">Baja</option>

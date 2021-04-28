@@ -210,12 +210,11 @@ article #check {
 .alta {
   background-color: rgb(233, 131, 131);
 }
-article .botones {
-  margin: none;
-  width: 40%;
+article .botones img {
+  margin: 7px;
 }
-article button {
-  margin: 5px;
+article .botones img:hover {
+  cursor: pointer;
 }
 article.true {
   background-color: rgb(82, 196, 82);
