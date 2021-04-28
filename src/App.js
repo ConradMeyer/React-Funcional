@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Header from "./Components/Header/Header";
 import Main from "./Components/Main/Main";
 import Login from "./Components/Login/Login";
-import Menu from './Components/Menu/Menu'
+import Menu from "./Components/Menu/Menu";
 import AuthContext from "./contexts/AuthContext";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
@@ -19,14 +19,14 @@ function App() {
     auth,
     handleLogged,
     menu,
-    handleMenu
+    handleMenu,
   };
 
   return (
     <Router>
       <div className="App">
         <AuthContext.Provider value={dataContext}>
-        { menu ? <Menu /> : ""}
+          <Menu />
           <Header user={state.user} />
           <Switch>
             <Route path="/login" component={Login} />

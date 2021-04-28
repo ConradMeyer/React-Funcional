@@ -15,16 +15,7 @@ const Main = (props) => {
   const [toEdit, setToEdit] = useState({});
   const dataContext = useContext(AuthContext);
 
-  // Primera renderización (Poner la mesa)
-  // useEffect(() => {
-  //   async function loadTasks() {
-  //     const newTasks = await getTasks();
-  //     setTasks([...tasks, ...newTasks]);
-  //   }
-  //   loadTasks();
-  // }, []);
-
-  // CON FETCH Y BACK (peticion de datos a backend)
+  // PRIMERA RENDERIZACION CON FETCH Y BACK (peticion de datos a backend)
   useEffect(() => {
     async function loadTasks() {
       try {

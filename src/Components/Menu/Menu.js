@@ -6,7 +6,7 @@ function Menu() {
   const dataContext = useContext(AuthContext);
 
   return (
-    <div className="menu-desplegable">
+    <div className={`menu-desplegable ${dataContext.menu}`}>
       <div className="perfil">
         <img src="https://thispersondoesnotexist.com/image" alt="" />
         <h3>Federico Dammhal</h3>
@@ -19,8 +19,10 @@ function Menu() {
         </li>
         <li onClick={dataContext.handleMenu}>TASKS</li>
         {dataContext.auth ? (
-          <li onClick={(dataContext.handleLogged, dataContext.handleMenu)}>
-            LOGOUT
+          <li onClick={dataContext.handleLogged}>
+            <Link to="/" onClick={dataContext.handleMenu}>
+              LOGOUT
+            </Link>
           </li>
         ) : (
           <li onClick={dataContext.handleMenu}>
@@ -28,7 +30,7 @@ function Menu() {
           </li>
         )}
         <li onClick={dataContext.handleMenu}></li>
-        <li onClick={dataContext.handleMenu}>EXIT</li>
+        <li onClick={dataContext.handleMenu}>BACK</li>
       </ul>
     </div>
   );
