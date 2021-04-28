@@ -1,7 +1,7 @@
 import { useState, useContext } from "react";
 import logo from "../../logo.svg";
+import square from "../../square.svg";
 import AuthContext from "../../contexts/AuthContext";
-import { Link } from "react-router-dom";
 
 const Header = (props) => {
   const [state, setState] = useState({ user: props.user });
@@ -10,13 +10,7 @@ const Header = (props) => {
   return (
     <>
       <div className="nav">
-        {dataContext.auth ? (
-          <button onClick={dataContext.handleLogged}>Log-Out</button>
-        ) : (
-          <button>
-            <Link to="/login">Log-In</Link>
-          </button>
-        )}
+        <img src={square} alt="menu" onClick={dataContext.handleMenu} id="hamburguesa"/>
       </div>
       <div className="header">
         <div className="bienvenida">

@@ -9,14 +9,61 @@
   font-family: "Courier New", Courier, monospace;
 }
 
+.menu-desplegable {
+  position: absolute;
+  background-color: rgba(245, 245, 245, 0.9);
+  height: 100vh;
+  z-index: 1;
+  width: 60%;
+}
+.perfil {
+  background-color: rgb(41, 37, 37);
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.perfil img{
+  margin: 10px;
+  width: 70px;
+  border-radius: 50%;
+  border: 1px solid red;
+}
+.menu-listado {
+  text-align: start;
+}
+.menu-listado a {
+  text-decoration: none;
+  color: black;
+}
+.menu-listado li {
+  margin-top: 30px;
+  margin-left: 25px;
+  list-style-type: none;
+  font-weight: bolder;
+}
+.menu-listado li:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
 /* HEADER */
 .nav {
   background-color: rgb(218, 237, 253);
   display: flex;
+  justify-content: space-between;
 }
 .nav button {
   width: 100px;
   margin: 15px;
+}
+#hamburguesa {
+  margin-left: 10px;
+  margin-top: 10px;
+}
+#hamburguesa:hover {
+  cursor: pointer;
 }
 .nav a {
   color: white;
@@ -47,20 +94,25 @@
 div.login {
   margin: 50px auto;
   padding: 10px;
-  width: 70%;
+  width: 80%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   box-shadow: 2px 2px 15px -3px black;
   border-radius: 15px;
+  max-width: 600px;
 }
 .login a {
   color: white;
   text-decoration: none;
 }
+.login input {
+  width: 80%;
+}
 .login button {
   width: 100px;
+  margin: 15px;
 }
 .login .checkbox {
   display: flex;
@@ -102,7 +154,7 @@ input {
   text-decoration: none;
   border-radius: 10px;
   border: none;
-  background-color: black;
+  background-color: rgb(41, 37, 37);
   color: white;
   font-weight: bold;
   box-shadow: 2px 2px 20px -4px black;
@@ -119,7 +171,7 @@ article button {
   text-decoration: none;
   border-radius: 10px;
   border: none;
-  background-color: black;
+  background-color: rgb(41, 37, 37);
   color: white;
   font-weight: bold;
   box-shadow: 2px 2px 20px -4px black;
@@ -132,6 +184,7 @@ article {
   background-color: rgb(235, 225, 225);
   margin: 10px auto;
   padding: 10px 0px;
+  width: 90%;
   max-width: 650px;
 }
 article > h3 {
@@ -178,7 +231,7 @@ button {
   text-decoration: none;
   border-radius: 10px;
   border: none;
-  background-color: black;
+  background-color: rgb(41, 37, 37);
   color: white;
   font-weight: bold;
   box-shadow: 2px 2px 15px -4px black;
